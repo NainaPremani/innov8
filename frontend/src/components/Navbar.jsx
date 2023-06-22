@@ -1,57 +1,51 @@
-import { useEffect, useState } from "react";
-
-// import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import LogoImage from "../assets/Interview Mastery-logo.png";
 const Navbar = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const navigation = [
-    { name: "Product", href: "#" },
-    { name: "Features", href: "#" },
-    { name: "Marketplace", href: "#" },
-    { name: "Company", href: "#" },
-  ];
-  useEffect(() => {
-    mobileMenuOpen;
-  }, []);
   return (
-    <nav
-      className="flex items-center justify-between p-6 lg:px-8"
-      aria-label="Global"
-    >
-      <div className="flex lg:flex-1">
-        <a href="#" className="-m-1.5 p-1.5">
-          <span className="sr-only">Your Company</span>
-          <img
-            className="h-8 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-            alt=""
-          />
-        </a>
-      </div>
-      <div className="flex lg:hidden">
-        <button
-          type="button"
-          className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-          onClick={() => setMobileMenuOpen(true)}
-        >
-          <span className="sr-only">Open main menu</span>
-          <text className="h-6 w-6" aria-hidden="true" />
-        </button>
-      </div>
-      <div className="hidden lg:flex lg:gap-x-12">
-        {navigation.map((item) => (
-          <a
-            key={item.name}
-            href={item.href}
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
-            {item.name}
-          </a>
-        ))}
-      </div>
-      <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-          Log in <span aria-hidden="true">&rarr;</span>
-        </a>
+    <nav className="bg-gray-800">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center">
+            <img src={LogoImage} alt="Interview Mastery-logo" width={"100px"} />
+          </div>
+          <div className="flex items-center">
+            <a
+              href="#"
+              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Home
+            </a>
+            <a
+              href="#"
+              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Practice
+            </a>
+            <a
+              href="#"
+              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Feedback
+            </a>
+            <a
+              href="#"
+              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Login
+            </a>
+            <a
+              href="#"
+              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Signup
+            </a>
+            <a
+              href="#"
+              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Logout
+            </a>
+          </div>
+        </div>
       </div>
     </nav>
   );
