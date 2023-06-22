@@ -1,11 +1,12 @@
-import LoginForm from "./pages/Login";
-import RegistrationForm from "./pages/SignUp";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 export default function App() {
   return (
-    <>
-      {/* <RegistrationForm /> */}
-      <LoginForm />
-    </>
+    <div>
+      <Navbar />
+      <h1 className="text-3xl font-bold underline h-48">Hello world!</h1>
+      <Footer />
+    </div>
   );
 }
