@@ -1,5 +1,6 @@
 import LogoImage from "../assets/Interview Mastery-logo.png";
 const Navbar = () => {
+  const isLogin = false;
   return (
     <nav className="bg-gray-800">
       <div className="container mx-auto px-4">
@@ -26,24 +27,29 @@ const Navbar = () => {
             >
               Feedback
             </a>
-            <a
-              href="#"
-              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Login
-            </a>
-            <a
-              href="#"
-              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Signup
-            </a>
-            <a
-              href="#"
-              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Logout
-            </a>
+            {!isLogin ? (
+              <>
+                <a
+                  href="#"
+                  className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Login
+                </a>
+                <a
+                  href="#"
+                  className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                >
+                  Signup
+                </a>
+              </>
+            ) : (
+              <a
+                href="#"
+                className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+              >
+                Logout
+              </a>
+            )}
           </div>
         </div>
       </div>
