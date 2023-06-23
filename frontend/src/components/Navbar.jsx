@@ -1,4 +1,5 @@
 import LogoImage from "../assets/Interview Mastery-logo.png";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   const isLogin = false;
   return (
@@ -9,47 +10,42 @@ const Navbar = () => {
             <img src={LogoImage} alt="Interview Mastery-logo" width={"100px"} />
           </div>
           <div className="flex items-center">
-            <a
-              href="#"
+            <Link
+              to="/"
               className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               Home
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/practice"
               className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               Practice
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/feedback"
               className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
             >
               Feedback
-            </a>
-            {!isLogin ? (
-              <>
-                <a
-                  href="#"
-                  className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Login
-                </a>
-                <a
-                  href="#"
-                  className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Signup
-                </a>
-              </>
-            ) : (
-              <a
-                href="#"
-                className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Logout
-              </a>
-            )}
+            </Link>
+            <Link
+              to="/login"
+              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Login
+            </Link>
+            <Link
+              to="/signup"
+              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Signup
+            </Link>
+            {/* <a
+              href="#"
+              className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Logout
+            </a> */}
           </div>
         </div>
       </div>
