@@ -7,7 +7,13 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <img src={LogoImage} alt="Interview Mastery-logo" width={"100px"} />
+            <Link to="/">
+              <img
+                src={LogoImage}
+                alt="Interview Mastery-logo"
+                width={"100px"}
+              />
+            </Link>
           </div>
           <div className="flex items-center">
             <Link

@@ -2,7 +2,7 @@ import Test from "../components/Test";
 
 const Practice = () => {
   return (
-    <div>
+    <div className="h-screen">
       <Test />
     </div>
   );
