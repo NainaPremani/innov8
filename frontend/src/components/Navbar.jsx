@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const isLogin = false;
   return (
-    <nav className="bg-gray-800">
+    <nav className="bg-[#116466]">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
