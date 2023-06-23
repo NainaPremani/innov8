@@ -4,7 +4,8 @@ import RegistrationForm from "../pages/SignUp";
 import Home from "../pages/Home";
 import PageNotFound from "../pages/PageNotFound";
 import Practice from "../pages/Practice";
-import Microphone from "./Microphone";
+import Microphone from "./microphone";
+
 const MainRoutes = () => {
   return (
     <Routes>
