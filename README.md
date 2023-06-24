@@ -77,7 +77,7 @@ To run the AI-Powered Interview Stimulator locally, follow these steps:
    npm start
    ```
 
-6. Access the application by visiting `http://localhost:3000` in your web browser.
+6. Access the application by visiting `http://localhost:5000` in your web browser for backend and for Frontend  `http://localhost:5173` .
 
 ## Usage
 
