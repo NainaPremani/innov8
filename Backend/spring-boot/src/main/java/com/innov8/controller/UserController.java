@@ -35,6 +35,7 @@ public class UserController {
         "password": "1234",
         "phone": "1234567890",
         "address": "kanpur",
+        "track": "node",
         "role": "admin"
 
     }

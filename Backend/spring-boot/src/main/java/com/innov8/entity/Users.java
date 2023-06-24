@@ -36,6 +36,9 @@ public class Users {
     @NotNull(message = "Address cannot be null")
     @Size(min = 4, max = 50, message = "Address must be between 4 and 50 characters")
     private String address;
+    @NotNull(message = "Track cannot be null")
+    @Size(min = 3, max = 50, message = "Track must be between 4 and 50 characters")
+    private String track;
     private String role;
 
 }
