@@ -4,7 +4,7 @@ import MainRoutes from "./components/MainRoutes";
 
 export default function App() {
   return (
-    <div className="bg-[url('./assets/bg-svg.png')]">
+    <div className="bg-[url('./assets/wave.png')] bg-cover ">
       <Navbar />
       <MainRoutes />
       <Footer />

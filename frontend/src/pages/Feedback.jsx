@@ -1,7 +1,7 @@
 import mainimg from "../assets/ai-interview.jpg";
 const Feedback = () => {
   return (
-    <div className=" min-h-screen flex justify-center">
+    <div className=" min-h-screen flex justify-center mt-20">
       <div className="flex w-4/5">
         <div>
           <h1 className="text-7xl font-bold text-center text-white">
