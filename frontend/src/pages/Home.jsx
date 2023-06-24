@@ -13,7 +13,7 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+    <div className="min-h-screen flex items-center justify-center">
       <div className="max-w-md mx-auto p-6 bg-white rounded shadow">
         <h2 className="text-3xl text-gray-800 font-semibold mb-6">
           Profile Details
