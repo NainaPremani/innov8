@@ -1,18 +1,44 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { IoMdSend } from "react-icons/io";
+
 import { AiFillAudio } from "react-icons/ai";
+
 const Test = () => {
   const [answer, setAnswer] = useState("");
+  const [qdata, setQdata] = useState([]);
+  const [count, setCount] = useState(0);
+  const data = {
+    bot: "\n\n1. What is the MERN stack?\n2. What are the benefits of using the MERN stack?\n3. How do I set up a development environment for a MERN application?\n4. What are some common challenges when working with the MERN stack?\n5. What libraries and frameworks are commonly used in a MERN application?",
+  };
+
+  const botResponse = data.bot;
+  const questions = botResponse
+    .split("\n")
+    .filter((question) => question.trim() !== "");
+
+  // console.log(questions);
+
+  function showQues(count) {
+    setCount((p) => p + 1);
+  }
 
   const handleAnswerChange = (e) => {
     setAnswer(e.target.value);
   };
-
+  const handleAnswer = () => {
+    const q = {
+      question: questions[count],
+      ans: answer,
+    };
+    setQdata((p) => [...p, q]);
+    console.log(q);
+    // setAnswer("");
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(qdata);
     // Perform any necessary actions with the answer
-    console.log("Submitted answer:", answer);
+    //  console.log("Submitted answer:");
     // Reset the answer state
     setAnswer("");
   };
@@ -35,6 +61,7 @@ const Test = () => {
           Question Answer Page
         </h1>
         <form onSubmit={handleSubmit} className="flex flex-col items-center">
+          <h3>{questions[count]}</h3>
           <textarea
             value={answer}
             onChange={handleAnswerChange}
@@ -51,12 +78,31 @@ const Test = () => {
                 <AiFillAudio />
               </button>
             </Link>
-            <button
-              type="submit"
-              className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 ml-4"
-            >
-              <IoMdSend />
-            </button>
+
+            {qdata.length == 5 ? (
+              <button
+                className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 ml-4"
+                type="submit"
+              >
+                Submit Test.
+              </button>
+            ) : (
+              <>
+                <button
+                  className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 ml-4"
+                  onClick={handleAnswer}
+                >
+                  {/* <IoMdSend /> */}
+                  Submit Answer
+                </button>
+                <button
+                  className="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 ml-4"
+                  onClick={showQues}
+                >
+                  Next
+                </button>
+              </>
+            )}
           </div>
         </form>
       </div>
