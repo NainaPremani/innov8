@@ -6,6 +6,7 @@ import PageNotFound from "../pages/PageNotFound";
 import Practice from "../pages/Practice";
 import Microphone from "./microphone";
 import Feedback from "../pages/Feedback";
+import TrackForm from "../pages/TrackForm";
 
 const MainRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const MainRoutes = () => {
       <Route path="/feedback" element={<Feedback />} />
       <Route path="/microphone" element={<Microphone />} />
       <Route path="/" element={<Home />} />
+      <Route path="/trackform" element={<TrackForm />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

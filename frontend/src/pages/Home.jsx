@@ -1,115 +1,65 @@
-import React, { useState } from "react";
-
+import { Link } from "react-router-dom";
+import mainimg from "../assets/ai-interview.jpg";
 const Home = () => {
-  const [courseTrack, setCourseTrack] = useState("");
-
-  const handleCourseTrackChange = (e) => {
-    setCourseTrack(e.target.value);
+  const FeatureCard = ({ title, description }) => {
+    return (
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h3 className="text-xl font-bold mb-2">{title}</h3>
+        <p className="text-gray-600">{description}</p>
+      </div>
+    );
   };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add form submission logic here
-  };
-
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-md mx-auto p-6 bg-white rounded shadow">
-        <h2 className="text-3xl text-gray-800 font-semibold mb-6">
-          Profile Details
-        </h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-6">
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-              placeholder="Enter your name"
+    <div>
+      <div className=" flex justify-center mt-20">
+        <div className="flex  w-4/5">
+          <div>
+            <h1 className="text-7xl font-bold text-center text-white">
+              Your Journey starts here!
+            </h1>
+            <Link to="/trackform">
+              <button className=" ml-56 mt-16 bg-white hover:bg-blue-700 text-black font-bold py-2 px-4 rounded transform transition-transform duration-300 hover:scale-110">
+                Get Started
+              </button>
+            </Link>
+          </div>
+
+          <div>
+            <img
+              src={mainimg}
+              alt="ai interview img"
+              className="border rounded"
             />
           </div>
-          <div className="mb-6">
-            <label
-              htmlFor="lastname"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Last Name
-            </label>
-            <input
-              type="text"
-              id="text"
-              className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500"
-              placeholder="Enter your last name"
+        </div>
+      </div>
+      <div>
+        <div className="flex flex-wrap justify-center">
+          <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+            <FeatureCard
+              title="AI powered interview simulator"
+              description="Prepare for interviews with our advanced AI simulator, which provides realistic interview scenarios and feedback to help you improve."
             />
           </div>
-          <div className="mb-6">
-            <label
-              htmlFor="courseTrack"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Select a course Track
-            </label>
-            <div>
-              <label className="inline-flex items-center">
-                <input
-                  type="radio"
-                  className="form-radio"
-                  name="courseTrack"
-                  value="MERN"
-                  checked={courseTrack === "MERN"}
-                  onChange={handleCourseTrackChange}
-                />
-                <span className="ml-2">MERN</span>
-              </label>
-              <label className="inline-flex items-center ml-6">
-                <input
-                  type="radio"
-                  className="form-radio"
-                  name="courseTrack"
-                  value="JAVA"
-                  checked={courseTrack === "JAVA"}
-                  onChange={handleCourseTrackChange}
-                />
-                <span className="ml-2">JAVA</span>
-              </label>
-              <label className="inline-flex items-center ml-6">
-                <input
-                  type="radio"
-                  className="form-radio"
-                  name="courseTrack"
-                  value="NODE"
-                  checked={courseTrack === "NODE"}
-                  onChange={handleCourseTrackChange}
-                />
-                <span className="ml-2">NODE</span>
-              </label>
-              <label className="inline-flex items-center ml-6">
-                <input
-                  type="radio"
-                  className="form-radio"
-                  name="courseTrack"
-                  value="Behavioural"
-                  checked={courseTrack === "Behavioural"}
-                  onChange={handleCourseTrackChange}
-                />
-                <span className="ml-2">Behavioural</span>
-              </label>
-            </div>
+          <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+            <FeatureCard
+              title="Audio support for answers"
+              description="Answer questions in audio format with our audio support feature. Practice articulating your thoughts effectively and enhance your communication skills."
+            />
           </div>
-          <div className="flex justify-end">
-            <button
-              type="submit"
-              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            >
-              Update
-            </button>
+          <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+            <FeatureCard
+              title="Interactive and user friendly"
+              description="Experience an interactive and user-friendly interface that makes it easy to navigate through different sections and utilize the platform's features."
+            />
           </div>
-        </form>
+          <div className="w-full md:w-1/2 lg:w-1/4 p-4">
+            <FeatureCard
+              title="Track your Progress"
+              description="Keep track of your progress as you practice and learn. Set goals, view your performance analytics, and stay motivated on your journey to success."
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
