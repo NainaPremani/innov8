@@ -19,13 +19,13 @@ app.get('/', async (req, res) => {
   })
 })
 
-app.post('/', async (req, res) => {
+app.post('/openai', async (req, res) => {
   try {
     const prompt = req.body.prompt;
 
     const response = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: `${prompt}`,
+      prompt: `${prompt} Please evaluate my answer and give me rating out of 10. I want the rating as an object with a Feedback message`,
       temperature: 0, 
       max_tokens: 3000, 
       top_p: 1, 
