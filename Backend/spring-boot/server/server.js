@@ -17,7 +17,29 @@ app.get('/', async (req, res) => {
   res.status(200).send({
     message: 'Hello from Avishek Ai!'
   })
-})
+});
+
+app.post("/questions", async (req, res) => {
+  try {
+    const prompt = req.body.topic;
+    console.log(prompt, process.env.API_KEY);
+    const response = await openai.createCompletion({
+      model: "text-davinci-003",
+      prompt: `send me five questions in an array on ${prompt}`,
+      temperature: 0,
+      max_tokens: 100,
+      top_p: 1,
+      frequency_penalty: 0.5,
+      presence_penalty: 0,
+    });
+    res.status(200).send({
+      result: response.data.choices[0].text,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(error);
+  }
+});
 
 app.post('/openai', async (req, res) => {
   try {
@@ -25,7 +47,7 @@ app.post('/openai', async (req, res) => {
 
     const response = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: `${prompt} Please evaluate my answer and give me rating out of 10. I want the rating as an object with a Feedback message`,
+      prompt: `${prompt} Evaluate my answers and give me rating out of 10. I want the rating as an object with a Feedback message`,
       temperature: 0, 
       max_tokens: 3000, 
       top_p: 1, 
