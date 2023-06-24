@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { CourseSelection } from "../Redux/courseReducer/action";
 
 const TrackForm = () => {
   const [courseTrack, setCourseTrack] = useState("");
@@ -7,9 +8,12 @@ const TrackForm = () => {
     setCourseTrack(e.target.value);
   };
 
+  console.log("courseTrack track form wala", courseTrack);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add form submission logic here
+    CourseSelection(courseTrack);
   };
 
   return (
@@ -105,8 +109,9 @@ const TrackForm = () => {
             <button
               type="submit"
               className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+              onClick={handleSubmit}
             >
-              Update
+              Submit
             </button>
           </div>
         </form>

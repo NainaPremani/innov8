@@ -18,6 +18,8 @@ const Microphone = () => {
     return <h1>Browser doesn't support speech recognition.</h1>;
   }
 
+  console.log("Transcript", transcript);
+
   return (
     <div className=" h-screen max-w-md mx-auto">
       <p className="w-full mt-12 h-48 px-4 py-2 border border-gray-300 rounded resize-none focus:outline-none focus:border-blue-500">
