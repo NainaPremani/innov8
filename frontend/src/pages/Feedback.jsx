@@ -1,7 +1,15 @@
-import React from "react";
-
+import { useDispatch, useSelector } from "react-redux";
 const Feedback = () => {
-  return <div></div>;
+  const { isLoading, isError, evalres } = useSelector(
+    (state) => state.dataReducer
+  );
+
+
+  return (
+    <div>
+      <p>{evalres}</p>
+    </div>
+  );
 };
 
 export default Feedback;

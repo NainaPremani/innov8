@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { CourseSelection } from "../Redux/courseReducer/action";
+import { useDispatch } from "react-redux";
 
 const TrackForm = () => {
   const [courseTrack, setCourseTrack] = useState("");
@@ -7,13 +8,16 @@ const TrackForm = () => {
   const handleCourseTrackChange = (e) => {
     setCourseTrack(e.target.value);
   };
-
-  console.log("courseTrack track form wala", courseTrack);
+  const dispatch = useDispatch();
+  //console.log("courseTrack track form wala", courseTrack);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add form submission logic here
-    CourseSelection(courseTrack);
+    let key = {
+      topic: courseTrack,
+    };
+    dispatch(CourseSelection(key));
   };
 
   return (
