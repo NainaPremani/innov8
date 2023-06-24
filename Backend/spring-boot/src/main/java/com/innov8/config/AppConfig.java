@@ -1,4 +1,4 @@
-package com.innov8.config;
+rpackage com.innov8.config;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.context.annotation.Bean;
@@ -51,6 +51,8 @@ public class AppConfig {
 //
 
                               .requestMatchers("/swagger-ui*/**","/v3/api-docs/**").permitAll()
+                              .requestMatchers("/questions/**").permitAll()
+                              .requestMatchers("/openai/**").permitAll()
                             .requestMatchers(HttpMethod.POST,"/users").permitAll()
                             .requestMatchers("/users/**","/hello","/ADMIN/**").hasRole("ADMIN")
                             .requestMatchers("users/**").hasAnyRole("ADMIN","USER")
