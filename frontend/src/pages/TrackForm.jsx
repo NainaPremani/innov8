@@ -8,8 +8,6 @@ const TrackForm = () => {
     setCourseTrack(e.target.value);
   };
 
-  console.log("courseTrack track form wala", courseTrack);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add form submission logic here

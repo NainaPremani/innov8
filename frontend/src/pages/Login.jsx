@@ -1,11 +1,18 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { login } from "../Redux/authReducer/action";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+
+  const dispatch = useDispatch();
+
+  const { isAuth } = useSelector((store) => store.authReducer);
+  console.log("isAuth", isAuth);
 
   const validateEmail = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -24,6 +31,7 @@ const LoginForm = () => {
     }
   };
 
+  let data = { email, password };
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -32,6 +40,7 @@ const LoginForm = () => {
 
     // Proceed with form submission if there are no errors
     if (!emailError && !passwordError) {
+      dispatch(login(data));
     }
   };
 
@@ -94,7 +103,7 @@ const LoginForm = () => {
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
             >
-              Log in
+              {isAuth ? <Link to="/"></Link> : "Log in"}
             </button>
             <p>
               New here?

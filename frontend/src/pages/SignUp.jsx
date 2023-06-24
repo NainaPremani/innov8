@@ -1,13 +1,18 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { async } from "regenerator-runtime";
 
 const RegistrationForm = () => {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [name, setFirstName] = useState("");
+  const [username, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [user, setUser] = useState({});
+  const navigate = useNavigate();
 
   const validateEmail = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -26,7 +31,7 @@ const RegistrationForm = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     validateEmail();
@@ -35,6 +40,15 @@ const RegistrationForm = () => {
     // Proceed with form submission if there are no errors
     if (!emailError && !passwordError) {
       // Handle form submission here
+      let userData = { name, username, email, password };
+      axios
+        .post(`https://lucky-pumps-deer.cyclic.app/users/register`, userData)
+        .then((res) => {
+          console.log(res.data.msg);
+
+          navigate("/login");
+          alert(res.data.msg);
+        });
     }
   };
 
@@ -60,7 +74,7 @@ const RegistrationForm = () => {
               id="first-name"
               type="text"
               placeholder="First Name"
-              value={firstName}
+              value={name}
               onChange={(e) => setFirstName(e.target.value)}
               required
             />
@@ -77,7 +91,7 @@ const RegistrationForm = () => {
               id="last-name"
               type="text"
               placeholder="Last Name"
-              value={lastName}
+              value={username}
               onChange={(e) => setLastName(e.target.value)}
               required
             />
@@ -132,6 +146,7 @@ const RegistrationForm = () => {
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
+              onClick={handleSubmit}
             >
               Register
             </button>
