@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoMdSend } from "react-icons/io";
 import { AiFillAudio } from "react-icons/ai";
@@ -48,20 +48,6 @@ const Test = () => {
                 type="button"
                 className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
               >
-                {/* <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 inline-block mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 15l-4-4m0 0l4-4m-4 4h14"
-                />
-              </svg> */}
                 <AiFillAudio />
               </button>
             </Link>
