@@ -43,6 +43,7 @@ public class UserServiceImpl implements UserService{
         users1.setName(users.getName());
         users1.setPhone(users.getPhone());
         users1.setAddress(users.getAddress());
+        users1.setTrack(users.getTrack());
         return userRepository.save(users1);
     }
 
