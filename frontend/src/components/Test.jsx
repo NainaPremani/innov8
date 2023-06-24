@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { AiFillAudio } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { postuserAnswers } from "../Redux/dataReducer/action";
 
 const Test = () => {
   const [answer, setAnswer] = useState("");
   const [qdata, setQdata] = useState([]);
   const [count, setCount] = useState(0);
+  const myDATA = useSelector((state) => state.courseReducer.data);
+  console.log("mtData", myDATA);
   const data = {
     bot: "\n\n1. What is the MERN stack?\n2. What are the benefits of using the MERN stack?\n3. How do I set up a development environment for a MERN application?\n4. What are some common challenges when working with the MERN stack?\n5. What libraries and frameworks are commonly used in a MERN application?",
   };
@@ -17,7 +21,7 @@ const Test = () => {
     .filter((question) => question.trim() !== "");
 
   // console.log(questions);
-
+  const dispatch = useDispatch();
   function showQues(count) {
     setCount((p) => p + 1);
   }
@@ -40,8 +44,12 @@ const Test = () => {
     // Perform any necessary actions with the answer
     //  console.log("Submitted answer:");
     // Reset the answer state
+
+    dispatch(postuserAnswers(qdata));
     setAnswer("");
   };
+
+  useEffect(() => {}, []);
 
   return (
     <div className="container mx-auto">

@@ -1,4 +1,8 @@
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "./actiontype";
+import {
+  LOGIN_FAILURE,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+} from "../authReducer/actionTypes";
 const initalState = {
   isAuth: false,
   isLoading: false,
